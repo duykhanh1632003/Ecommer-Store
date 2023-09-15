@@ -1,0 +1,56 @@
+.page_404 {
+    background: #fff;
+    font-family: 'Arvo', serif;
+}
+
+.page_404 img {
+    width: 100%;
+}
+.hashloader-spinders{
+    height: 100vh;
+    display: flex;
+    align-items: center;
+}
+
+.link-to{
+    text-decoration: none;
+    color: black;
+}
+
+.four_zero_four_bg{
+    align-items: center;
+
+    height: 500px;
+    background-position: center;
+}
+
+.four_zero_four_bg img {
+    margin-left:350px ;
+    height: 500px;
+    width: 700px;
+}
+
+.four_zero_four_bg h1 {
+    margin-left: 600px;
+    font-size: 80px;
+    margin-top: 30px;
+}
+
+.four_zero_four_bg h3 {
+    margin-left: 600px;
+    font-size: 80px;
+}
+
+.link_404 {
+    margin-left: 600px;
+    color: #fff !important;
+    padding: 10px 20px;
+    background: #39ac31;
+    margin: 20px 0;
+    display: inline-block;
+}
+
+.contant_box_404 {
+    margin-left: 600px;
+    margin-top: -50px;
+}

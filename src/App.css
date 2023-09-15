@@ -1,0 +1,154 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:opsz,wght@6..12,400;6..12,600;6..12,700&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;1,700&display=swap');
+*{
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+
+}
+
+.nav-bar{
+  height: 70px;
+  background-color: black;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 4rem;
+}
+
+.nav-bar a{
+  text-decoration: none;
+  color: white;
+
+}
+
+.nav-bar h2{
+  font-size: 40px;
+}
+
+.nav-bag{
+  display: flex;
+  align-items: center;
+
+}
+
+.bag-quantity{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 25px;
+  width: 25px;
+  background: yellow;
+  border-radius: 50%;
+  font-size: 14px;
+  font-weight: 700;
+  color: black;
+  margin-left: 5px;
+}
+
+/* Home */
+
+.home-container{
+  padding: 2rem 4rem;
+}
+
+.home-container h2{
+  font-size: 40px;
+  font-weight: 600;
+  text-align: center;
+}
+
+.products{
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  margin-top:2rem ;
+}
+
+.product{
+  width: 250px;
+  max-width: 100%;
+  height: 400px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin: 1rem auto;
+  padding: 1rem;
+  border-radius: 15px;
+  box-shadow: -5px -5px 10px rgba(255,255,255,0.5),2px 2px 5px rgba(94,104,121 ,0.3);
+}
+
+.product img{
+  width: 80%;
+  margin-top: 1rem;
+  margin-left: auto;
+  margin-right: auto;
+
+}
+
+.product h3{
+  font-size: 25px;
+  font-weight: 700;
+  text-align: center;
+
+}
+
+.product .details{
+  display: flex;
+  text-align: center;
+  justify-content: space-between;
+  align-items: center;
+  font-weight: 700;
+
+}
+
+.product .details .price{
+  font-size: 20px;
+  font-weight: 700;
+
+}
+
+/* Các kiểu cơ bản cho nút */
+.product button {
+  display: inline-block;
+  padding: 10px 20px;
+  font-size: 16px;
+  background-color: #040404;
+  /* Màu nền */
+  color: #fff;
+  /* Màu chữ */
+  border: none;
+  border-radius: 5px;
+  /* Góc bo tròn */
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.2s;
+}
+
+/* Hiệu ứng khi hover */
+.product button:hover {
+  background-color: #2b2929;
+  /* Màu nền thay đổi khi hover */
+  transform: scale(1.05);
+  /* Phóng to nút một chút */
+}
+
+/* Hiệu ứng khi được nhấn */
+.product button:active {
+  transform: scale(0.95);
+  /* Thu nhỏ nút khi nhấn */
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+  /* Đổ bóng khi nhấn */
+}
+
+/* Hiệu ứng khi nút có trạng thái chờ (loading) */
+.product button.loading {
+  background-color: #ccc;
+  /* Màu nền xám khi chờ */
+  cursor: not-allowed;
+  /* Không cho click khi chờ */
+}
+
+/* Hiệu ứng khi nút có trạng thái thành công */
+.product button.success {
+  background-color: #4caf50;
+  /* Màu nền khi thành công */
+}
