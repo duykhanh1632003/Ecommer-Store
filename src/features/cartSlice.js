@@ -49,31 +49,30 @@ const cartSlice = createSlice({
             state.cartItems = []
             localStorage.setItem("cartItems", JSON.stringify(state.cartItems))
         },
-        // getTotals(state, action) {
-        //     let { total, quantity } = state.cartItems.reduce(
-        //         (cartTotal, cartItem) => {
-        //             const { price, cartTotalQuantity } = cartItem; // Đảm bảo bạn có thuộc tính cartTotalQuantity
-        //             const itemTotal = price * cartTotalQuantity;
+        getTotals(state, action) {
+            let { total, quantity } = state.cartItems.reduce(
+                (cartTotal, cartItem) => {
+                    const { price, cartTotalQuantity } = cartItem; // Sử dụng cartTotalQuantity thay vì cartQuantity.
+                    const itemTotal = price * cartTotalQuantity;
 
-        //             cartTotal.total += itemTotal;
-        //             cartTotal.quantity += cartTotalQuantity;
+                    cartTotal.total += itemTotal;
+                    cartTotal.quantity += cartTotalQuantity;
 
-        //             return cartTotal;
-        //         },
-        //         {
-        //             total: 0,
-        //             quantity: 0,
-        //         }
-        //     );
-        //     total = parseFloat(total.toFixed(2));
-        //     state.cartTotalQuantity = quantity;
-        //     state.cartTotalAmount = total;
-        // },
+                    return cartTotal;
+                },
+                {
+                    total: 0,
+                    quantity: 0,
+                }
+            );
+            state.cartTotalQuantity = quantity;
+            state.cartTotalAmount = total;
+        },
     }
 })
 
     
-export const { addToCart, removeFromCart, decreaseCart, increaseCart, clearCart } = cartSlice.actions
+export const { addToCart, removeFromCart, decreaseCart, increaseCart, clearCart, getTotals } = cartSlice.actions
 
 
 export default cartSlice.reducer
