@@ -1,7 +1,31 @@
+import { useDispatch } from "react-redux";
 import { useSelector } from "react-redux/es/hooks/useSelector";
 import { Link } from "react-router-dom";
+import { removeFromCart, increaseCart, decreaseCart, clearCart } from "../features/cartSlice";
+import { useEffect } from "react";
 const Cart = () => {
+
+    
     const cart = useSelector((state) => state.cart)
+    const dispatch = useDispatch()
+
+    // useEffect(() => {
+    //     dispatch(getTotals());
+    // }, [cart, dispatch]);
+
+    const handleRemoveFromCart = (cartItem) => {
+        dispatch(removeFromCart(cartItem))
+    }
+
+    const handleIncrease = (cartItem) => {
+        dispatch(increaseCart(cartItem))
+    }
+    const handleDecrease = (cartItem) => {
+        dispatch(decreaseCart(cartItem))
+    }
+    const handeDeleteAllItem = (cartItem) => {
+        dispatch(clearCart())
+    }
     return (
         <div className="cart-container">
             <h2>Shopping Cart</h2>
@@ -40,16 +64,24 @@ const Cart = () => {
                                 <div>
                                     <h3>{cartItem.name}</h3>
                                     <p>{cartItem.desc}</p>
-                                    <button>Remove</button>
+                                    <button onClick={() => handleRemoveFromCart(cartItem)}>Loại bỏ</button>
                                 </div>
                             </div>
                             <div className="cart-product-price">
                                 ${cartItem.price}
                             </div>
                             <div className="cart-product-quantity">
-                                <button>+</button>
+                                <button onClick={() => handleIncrease(cartItem)}>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-plus" viewBox="0 0 16 16">
+                                        <path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z" />
+                                    </svg>
+                                </button>
                                 <div className="count">{cartItem.cartTotalQuantity}</div>
-                                <button>-</button>
+                                <button onClick={() => handleDecrease(cartItem)}>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-dash" viewBox="0 0 16 16">
+                                        <path d="M4 8a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7A.5.5 0 0 1 4 8z" />
+                                    </svg>
+                                </button>
                             </div>
                             <div className="cart-product-total-price">
                                 ${cartItem.price * cartItem.cartTotalQuantity}
@@ -58,7 +90,7 @@ const Cart = () => {
                     ))}
                     </div>
                     <div className="cart-summary">
-                        <button className="clear-cart">Bỏ hết tất cả</button>
+                        <button className="clear-btn" onClick={() => handeDeleteAllItem()}>Bỏ hết tất cả</button>
                         <div className="cart-checkout">
                             <div className="subtotal">
                                 <span>Tổng phụ</span>
