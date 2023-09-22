@@ -308,6 +308,11 @@
   cursor: pointer;
 }
 
+.cart-checkout .cart-login{
+  background-color: yellow;
+  color: black;
+}
+
 .cart-checkout .cart-login {
   background-color: yellow;
   color: black;
