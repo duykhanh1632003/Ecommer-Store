@@ -3,7 +3,7 @@ import { useSelector } from "react-redux";
 import { url } from "../components/api"
 
 const PayButton = ({ cartItems }) => {
-
+    console.log("Check cart items",cartItems)
     const user = useSelector((state) => state.auth)
 
     const handleCheckout = () => {

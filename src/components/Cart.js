@@ -15,7 +15,7 @@ import PayButton from "./PayButton";
 const Cart = () => {
     const cart = useSelector((state) => state.cart);
     const auth = useSelector((state) => state.auth);
-
+    console.log("check auth", auth);
     const dispatch = useDispatch();
     const navigate = useNavigate();
 
@@ -64,10 +64,10 @@ const Cart = () => {
             ) : (
                 <div>
                     <div className="titles">
-                        <h3 className="product-title">Product</h3>
-                        <h3 className="price">Price</h3>
-                        <h3 className="quantity">Quantity</h3>
-                        <h3 className="total">Total</h3>
+                        <h3 className="product-title">Sản phẩm</h3>
+                        <h3 className="price">Giá tiền</h3>
+                        <h3 className="quantity">Số lượng</h3>
+                        <h3 className="total">Tổng tiền</h3>
                     </div>
                     <div className="cart-items">
                         {cart.cartItems &&
@@ -79,7 +79,7 @@ const Cart = () => {
                                             <h3>{cartItem.name}</h3>
                                             <p>{cartItem.desc}</p>
                                             <button onClick={() => handleRemoveFromCart(cartItem)}>
-                                                Remove
+                                                Loại bỏ
                                             </button>
                                         </div>
                                     </div>
@@ -103,10 +103,10 @@ const Cart = () => {
                         </button>
                         <div className="cart-checkout">
                             <div className="subtotal">
-                                <span>Subtotal</span>
+                                <span>Tổng giá tiền</span>
                                 <span className="amount">${cart.cartTotalAmount}</span>
                             </div>
-                            <p>Taxes and shipping calculated at checkout</p>
+                            <p>Taxes and shipping sẽ được tính khi checkout</p>
                             {auth._id ? (
                                 <PayButton cartItems={cart.cartItems} />
                             ) : (
@@ -133,7 +133,7 @@ const Cart = () => {
                                             d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8z"
                                         />
                                     </svg>
-                                    <span>Continue Shopping</span>
+                                    <span>Tiếp tục mua sắm</span>
                                 </Link>
                             </div>
                         </div>
