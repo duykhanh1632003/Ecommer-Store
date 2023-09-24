@@ -3,7 +3,7 @@ const cors = require("cors");
 const mongoose = require("mongoose");
 import register from "./routes/register"
 import login from "./routes/login"
-
+import stripe from "./routes/stripe"
 require("dotenv").config();
 
 const app = express();
@@ -13,6 +13,10 @@ app.use(express.json());
 app.use(cors());
 app.use("/api/register",register)
 app.use("/api/login", login)
+
+app.use("/api/stripe", stripe)
+
+
 app.get("/", (req, res) => {
   res.send("hahaahha");
 });
